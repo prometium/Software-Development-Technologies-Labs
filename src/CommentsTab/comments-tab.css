@@ -1,0 +1,13 @@
+.comment {
+  margin-top: 32px;
+}
+
+.comment-name {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.comment-email {
+  font-style: italic;
+  margin-bottom: 10px;
+}

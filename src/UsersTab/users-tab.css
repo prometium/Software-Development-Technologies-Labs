@@ -1,0 +1,26 @@
+.user {
+  margin-top: 32px;
+}
+
+.user-name {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.user-username {
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.user-email {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.user-address {
+  padding-left: 16px;
+}
+
+.user-address-signature {
+  font-weight: bold;
+}

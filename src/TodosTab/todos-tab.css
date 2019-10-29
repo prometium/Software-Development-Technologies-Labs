@@ -1,0 +1,12 @@
+.todo {
+  margin-top: 32px;
+}
+
+.todo-title {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.todo-title-completed {
+  text-decoration: line-through;
+}

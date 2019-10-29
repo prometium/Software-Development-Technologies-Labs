@@ -3,9 +3,13 @@ import './base.css';
 import './app.css';
 
 import React from 'react';
-import useData from './hooks/useData';
 import useForm from './hooks/useForm';
 import PostsTab from './PostsTab';
+import CommentsTab from './CommentsTab';
+import AlbumsTab from './AlbumsTab';
+import PhotosTab from './PhotosTab';
+import TodosTab from './TodosTab';
+import UsersTab from './UsersTab';
 
 const typesMap = {
   posts: 'Посты',
@@ -17,12 +21,6 @@ const typesMap = {
 };
 
 function App() {
-  const comments = useData('https://jsonplaceholder.typicode.com/comments');
-  const albums = useData('https://jsonplaceholder.typicode.com/albums');
-  const photos = useData('https://jsonplaceholder.typicode.com/photos');
-  const todos = useData('https://jsonplaceholder.typicode.com/todos');
-  const users = useData('https://jsonplaceholder.typicode.com/users');
-
   const { inputs, handleChange } = useForm();
 
   return (
@@ -95,6 +93,16 @@ function App() {
           switch (inputs.type) {
             case 'posts':
               return <PostsTab />;
+            case 'comments':
+              return <CommentsTab />;
+            case 'albums':
+              return <AlbumsTab />;
+            case 'photos':
+              return <PhotosTab />;
+            case 'todos':
+              return <TodosTab />;
+            case 'users':
+              return <UsersTab />;
             default:
           }
         })()}
