@@ -2,14 +2,15 @@ import './reset.css';
 import './base.css';
 import './app.css';
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import useForm from './hooks/useForm';
-import PostsTab from './PostsTab';
-import CommentsTab from './CommentsTab';
-import AlbumsTab from './AlbumsTab';
-import PhotosTab from './PhotosTab';
-import TodosTab from './TodosTab';
-import UsersTab from './UsersTab';
+
+const PostsTab = React.lazy(() => import('./PostsTab'));
+const CommentsTab = React.lazy(() => import('./CommentsTab'));
+const AlbumsTab = React.lazy(() => import('./AlbumsTab'));
+const PhotosTab = React.lazy(() => import('./PhotosTab'));
+const TodosTab = React.lazy(() => import('./TodosTab'));
+const UsersTab = React.lazy(() => import('./UsersTab'));
 
 const typesMap = {
   posts: 'Посты',
@@ -89,23 +90,25 @@ function App() {
           </div>
         </div>
         <h1 className="current-type-title">{typesMap[inputs.type]}</h1>
-        {(() => {
-          switch (inputs.type) {
-            case 'posts':
-              return <PostsTab />;
-            case 'comments':
-              return <CommentsTab />;
-            case 'albums':
-              return <AlbumsTab />;
-            case 'photos':
-              return <PhotosTab />;
-            case 'todos':
-              return <TodosTab />;
-            case 'users':
-              return <UsersTab />;
-            default:
-          }
-        })()}
+        <Suspense fallback={<div>Загрузка...</div>}>
+          {(() => {
+            switch (inputs.type) {
+              case 'posts':
+                return <PostsTab />;
+              case 'comments':
+                return <CommentsTab />;
+              case 'albums':
+                return <AlbumsTab />;
+              case 'photos':
+                return <PhotosTab />;
+              case 'todos':
+                return <TodosTab />;
+              case 'users':
+                return <UsersTab />;
+              default:
+            }
+          })()}
+        </Suspense>
       </main>
     </>
   );

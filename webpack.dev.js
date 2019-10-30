@@ -8,6 +8,7 @@ module.exports = merge(common, {
   },
   devtool: 'source-map',
   devServer: {
+    open: true,
     contentBase: './dist',
     hot: true,
     historyApiFallback: true
