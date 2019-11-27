@@ -5,9 +5,6 @@ module.exports = {
   entry: {
     main: './src/index.js'
   },
-  output: {
-    path: path.resolve(__dirname, './docs')
-  },
   resolve: {
     alias: {
       src: path.resolve(__dirname, 'src/')
