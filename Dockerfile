@@ -3,11 +3,11 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY webpack.*.js ./
-COPY public /app/public
-COPY src /app/src
+COPY public ./public
+COPY src ./src
 RUN npm run build
 
 FROM nginx:1.17.5-alpine
-COPY --from=build /app/docs /usr/share/nginx/html
+COPY --from=build app/dist /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
