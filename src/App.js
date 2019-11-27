@@ -4,6 +4,7 @@ import './app.css';
 
 import React, { Suspense } from 'react';
 import useForm from './hooks/useForm';
+import useData from './hooks/useData';
 
 const PostsTab = React.lazy(() => import('./PostsTab'));
 const CommentsTab = React.lazy(() => import('./CommentsTab'));
@@ -22,79 +23,32 @@ const typesMap = {
 };
 
 function App() {
-  const { inputs, handleChange } = useForm();
+  const { inputs, handleChange } = useForm({ type: 'posts' });
 
   return (
     <>
       <main className="wrapper">
         <div>
-          <div>
-            <input
-              id="posts"
-              name="type"
-              type="radio"
-              value="posts"
-              onChange={handleChange}
-            />
-            <label htmlFor="posts">Посты</label>
-          </div>
-          <div>
-            <input
-              id="comments"
-              name="type"
-              type="radio"
-              value="comments"
-              onChange={handleChange}
-            />
-            <label htmlFor="comments">Комментарии</label>
-          </div>
-          <div>
-            <input
-              id="albums"
-              name="type"
-              type="radio"
-              value="albums"
-              onChange={handleChange}
-            />
-            <label htmlFor="albums">Альбомы</label>
-          </div>
-          <div>
-            <input
-              id="photos"
-              name="type"
-              type="radio"
-              value="photos"
-              onChange={handleChange}
-            />
-            <label htmlFor="photos">Фото</label>
-          </div>
-          <div>
-            <input
-              id="todos"
-              name="type"
-              type="radio"
-              value="todos"
-              onChange={handleChange}
-            />
-            <label htmlFor="todos">Список дел</label>
-          </div>
-          <div>
-            <input
-              id="users"
-              name="type"
-              type="radio"
-              value="users"
-              onChange={handleChange}
-            />
-            <label htmlFor="users">Пользователи</label>
-          </div>
+          {Object.entries(typesMap).map(([key, value]) => (
+            <div key={key}>
+              <input
+                id={key}
+                name="type"
+                type="radio"
+                value={key}
+                checked={inputs.type === key}
+                onChange={handleChange}
+              />
+              <label htmlFor={key}>{value}</label>
+            </div>
+          ))}
         </div>
         <h1 className="current-type-title">{typesMap[inputs.type]}</h1>
         <Suspense fallback={<div>Загрузка...</div>}>
           {(() => {
             switch (inputs.type) {
               case 'posts':
-                return <PostsTab />;
+                return <PostsTab posts={[]} />;
               case 'comments':
                 return <CommentsTab />;
               case 'albums':
@@ -102,9 +56,9 @@ function App() {
               case 'photos':
                 return <PhotosTab />;
               case 'todos':
-                return <TodosTab />;
+                return <TodosTab todos={[]} />;
               case 'users':
-                return <UsersTab />;
+                return <UsersTab users={[]} />;
               default:
             }
           })()}

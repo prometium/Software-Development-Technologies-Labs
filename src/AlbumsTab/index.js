@@ -1,1 +1,1 @@
-export { default } from './AlbumsTab';
+export { default } from './AlbumsTabContainer';

@@ -1,9 +1,11 @@
 module.exports = {
-  setupFilesAfterEnv: ["./jest.setup.js"],
+  verbose: true,
+  setupFiles: ['./jest.setup.js'],
+  setupFilesAfterEnv: ['./jest.setup-after-env.js'],
   transform: {
-    "^.+\\.js$": "babel-jest"
+    '^.+\\.js$': 'babel-jest'
   },
   moduleNameMapper: {
-    "\\.css$": "<rootDir>/__mocks__/styleMock.js"
+    '\\.css$': '<rootDir>/__mocks__/styleMock.js'
   }
 };

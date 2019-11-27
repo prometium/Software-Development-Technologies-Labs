@@ -1,1 +1,1 @@
-export { default } from './UsersTab';
+export { default } from './UsersTabContainer';

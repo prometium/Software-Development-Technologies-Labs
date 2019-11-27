@@ -1,11 +1,8 @@
 import './users-tab.css';
 
 import React from 'react';
-import useData from '../hooks/useData';
 
-function UsersTab() {
-  const users = useData('https://jsonplaceholder.typicode.com/users');
-
+function UsersTab({ users }) {
   return (
     <section>
       {users &&
@@ -43,8 +40,8 @@ function UsersTab() {
                   {zipcode}
                 </p>
                 <p>
-                  <span className="user-address-signature">lat/lng:</span>{' '}
-                  {lat}/{lng}
+                  <span className="user-address-signature">lat/lng:</span> {lat}
+                  /{lng}
                 </p>
               </div>
             </div>
