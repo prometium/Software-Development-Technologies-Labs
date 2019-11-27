@@ -1,6 +1,7 @@
 import './albums-tab.css';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function AlbumsTab({ albums }) {
   return (
@@ -14,5 +15,14 @@ function AlbumsTab({ albums }) {
     </section>
   );
 }
+
+AlbumsTab.propTypes = {
+  albums: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired
+    }).isRequired
+  ).isRequired
+};
 
 export default AlbumsTab;

@@ -1,6 +1,7 @@
 import './comments-tab.css';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function CommentsTab({ comments }) {
   return (
@@ -16,5 +17,16 @@ function CommentsTab({ comments }) {
     </section>
   );
 }
+
+CommentsTab.propTypes = {
+  comments: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired
+    }).isRequired
+  ).isRequired
+};
 
 export default CommentsTab;

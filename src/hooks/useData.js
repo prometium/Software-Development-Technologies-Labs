@@ -1,13 +1,20 @@
 import React from 'react';
-import receiveData from '../helpers/receiveData';
+import api from '../helpers/api';
 
 export default function useData(endpoint, quantity = 3) {
   const [data, setData] = React.useState([]);
 
   React.useEffect(() => {
-    receiveData(endpoint, quantity, data => {
-      setData(data.slice(0, quantity));
-    });
+    api(endpoint)
+      .then(data => {
+        setData(data.slice(0, quantity));
+      })
+      .catch(() => {
+        /*die*/
+      })
+      .finally(() => {
+        /*die*/
+      });
   }, []);
 
   return data;

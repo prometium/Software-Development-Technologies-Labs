@@ -1,6 +1,7 @@
 import './users-tab.css';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function UsersTab({ users }) {
   return (
@@ -50,5 +51,26 @@ function UsersTab({ users }) {
     </section>
   );
 }
+
+UsersTab.propTypes = {
+  users: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      username: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      address: PropTypes.shape({
+        street: PropTypes.string.isRequired,
+        suite: PropTypes.string.isRequired,
+        city: PropTypes.string.isRequired,
+        zipcode: PropTypes.string.string,
+        geo: PropTypes.shape({
+          lat: PropTypes.string.isRequired,
+          lng: PropTypes.string.isRequired
+        }).isRequired
+      }).isRequired
+    }).isRequired
+  ).isRequired
+};
 
 export default UsersTab;
