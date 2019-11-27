@@ -1,14 +1,13 @@
 import React from 'react';
+import receiveData from '../helpers/receiveData';
 
-export default function useData(url) {
-  const [data, setData] = React.useState();
+export default function useData(endpoint, quantity = 3) {
+  const [data, setData] = React.useState([]);
 
   React.useEffect(() => {
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        setData(data.slice(0, 3));
-      });
+    receiveData(endpoint, quantity, data => {
+      setData(data.slice(0, quantity));
+    });
   }, []);
 
   return data;

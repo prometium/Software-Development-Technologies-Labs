@@ -1,1 +1,1 @@
-export { default } from './PostsTab';
+export { default } from './PostsTabContainer';
