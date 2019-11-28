@@ -1,7 +1,7 @@
 import './photos-tab.css';
 
 import React from 'react';
-import useData from '../hooks/useData';
+import useData from 'src/hooks/useData';
 import PhotosTab from './PhotosTab';
 
 function PhotosTabContainer() {

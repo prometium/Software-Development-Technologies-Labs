@@ -1,7 +1,7 @@
 import './posts-tab.css';
 
 import React from 'react';
-import useData from '../hooks/useData';
+import useData from 'src/hooks/useData';
 import PostsTab from './PostsTab';
 
 function PostsTabContainer() {

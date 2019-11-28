@@ -26,6 +26,12 @@ const photos = [
   }
 ];
 
-it('renders without crashing with 3 elements', () => {
-  shallow(<PhotosTab photos={photos} />);
+describe('PhotosTab', () => {
+  it('renders without crashing with 3 elements', () => {
+    shallow(<PhotosTab photos={photos} />);
+  });
+
+  it('renders without crashing with undefinded elements', () => {
+    shallow(<PhotosTab photos={undefined} />);
+  });
 });

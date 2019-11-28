@@ -1,7 +1,7 @@
 import './comments-tab.css';
 
 import React from 'react';
-import useData from '../hooks/useData';
+import useData from 'src/hooks/useData';
 import CommentsTab from './CommentsTab';
 
 function CommentsTabContainer() {

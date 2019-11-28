@@ -1,7 +1,7 @@
 import './users-tab.css';
 
 import React from 'react';
-import useData from '../hooks/useData';
+import useData from 'src/hooks/useData';
 import UsersTab from './UsersTab';
 
 function UsersTabContainer() {

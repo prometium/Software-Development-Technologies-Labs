@@ -23,6 +23,12 @@ const todos = [
   }
 ];
 
-it('renders without crashing with 3 elements', async () => {
-  shallow(<TodosTab todos={todos} />);
+describe('TodosTab', () => {
+  it('renders without crashing with 3 elements', () => {
+    shallow(<TodosTab todos={todos} />);
+  });
+
+  it('renders without crashing with undefinded elements', () => {
+    shallow(<TodosTab todos={undefined} />);
+  });
 });

@@ -29,6 +29,12 @@ const comments = [
   }
 ];
 
-it('renders without crashing with 3 elements', () => {
-  shallow(<CommentsTab comments={comments} />);
+describe('CommentsTab', () => {
+  it('renders without crashing with 3 elements', () => {
+    shallow(<CommentsTab comments={comments} />);
+  });
+
+  it('renders without crashing with undefinded elements', () => {
+    shallow(<CommentsTab comments={undefined} />);
+  });
 });

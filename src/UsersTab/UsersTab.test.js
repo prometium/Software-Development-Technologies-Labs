@@ -74,6 +74,83 @@ const users = [
   }
 ];
 
-it('renders without crashing with 3 elements', () => {
-  shallow(<UsersTab users={users} />);
+const usersWithUndefinedAddress = [
+  {
+    id: 1,
+    name: 'Leanne Graham',
+    username: 'Bret',
+    email: 'Sincere@april.biz',
+    phone: '1-770-736-8031 x56442',
+    website: 'hildegard.org',
+    company: {
+      name: 'Romaguera-Crona',
+      catchPhrase: 'Multi-layered client-server neural-net',
+      bs: 'harness real-time e-markets'
+    }
+  }
+];
+
+const usersWithUndefinedAddressGeo = [
+  {
+    id: 1,
+    name: 'Leanne Graham',
+    username: 'Bret',
+    email: 'Sincere@april.biz',
+    address: {
+      street: 'Kulas Light',
+      suite: 'Apt. 556',
+      city: 'Gwenborough',
+      zipcode: '92998-3874'
+    },
+    phone: '1-770-736-8031 x56442',
+    website: 'hildegard.org',
+    company: {
+      name: 'Romaguera-Crona',
+      catchPhrase: 'Multi-layered client-server neural-net',
+      bs: 'harness real-time e-markets'
+    }
+  }
+];
+
+const usersWithUndefinedCompany = [
+  {
+    id: 1,
+    name: 'Leanne Graham',
+    username: 'Bret',
+    email: 'Sincere@april.biz',
+    address: {
+      street: 'Kulas Light',
+      suite: 'Apt. 556',
+      city: 'Gwenborough',
+      zipcode: '92998-3874',
+      geo: {
+        lat: '-37.3159',
+        lng: '81.1496'
+      }
+    },
+    phone: '1-770-736-8031 x56442',
+    website: 'hildegard.org'
+  }
+];
+
+describe('UsersTab', () => {
+  it('renders without crashing with 3 elements', () => {
+    shallow(<UsersTab users={users} />);
+  });
+
+  it('renders without crashing with undefinded elements', () => {
+    shallow(<UsersTab users={undefined} />);
+  });
+
+  it('renders without crashing with undefinded address', () => {
+    shallow(<UsersTab users={usersWithUndefinedAddress} />);
+  });
+
+  it('renders without crashing with undefinded user address geo', () => {
+    shallow(<UsersTab users={usersWithUndefinedAddressGeo} />);
+  });
+
+  it('renders without crashing with undefinded user company', () => {
+    shallow(<UsersTab users={usersWithUndefinedCompany} />);
+  });
 });

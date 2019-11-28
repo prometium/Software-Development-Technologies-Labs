@@ -1,7 +1,7 @@
 import './todos-tab.css';
 
 import React from 'react';
-import useData from '../hooks/useData';
+import useData from 'src/hooks/useData';
 import TodosTab from './TodosTab';
 
 function TodosTabContainer() {

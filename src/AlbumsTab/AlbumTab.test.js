@@ -20,6 +20,12 @@ const albums = [
   }
 ];
 
-it('renders without crashing with 3 elements', () => {
-  shallow(<AlbumsTab albums={albums} />);
+describe('AlbumsTab', () => {
+  it('renders without crashing with 3 elements', () => {
+    shallow(<AlbumsTab albums={albums} />);
+  });
+
+  it('renders without crashing with undefinded elements', () => {
+    shallow(<AlbumsTab albums={undefined} />);
+  });
 });

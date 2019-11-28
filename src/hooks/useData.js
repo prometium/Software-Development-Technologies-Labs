@@ -1,5 +1,5 @@
 import React from 'react';
-import api from '../helpers/api';
+import api from 'src/helpers/api';
 
 export default function useData(endpoint, quantity = 3) {
   const [data, setData] = React.useState([]);

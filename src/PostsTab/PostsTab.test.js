@@ -27,6 +27,12 @@ const posts = [
   }
 ];
 
-it('renders without crashing with 3 elements', () => {
-  shallow(<PostsTab posts={posts} />);
+describe('PostsTab', () => {
+  it('renders without crashing with 3 elements', () => {
+    shallow(<PostsTab posts={posts} />);
+  });
+
+  it('renders without crashing with undefinded elements', () => {
+    shallow(<PostsTab posts={undefined} />);
+  });
 });
